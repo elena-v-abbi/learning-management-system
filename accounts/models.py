@@ -31,6 +31,8 @@ class Studenet(models.Model):
 
     college=models.CharField(max_length=100,null=True)
 
+    profile_picture=models.ImageField(null=True,blank=True)
+
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name="Students")
 
 class Faculty(models.Model):
