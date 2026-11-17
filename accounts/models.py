@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+from django.db.models.signals import post_save
 # Create your models here.
 
 class User(AbstractUser):
@@ -14,42 +14,50 @@ class User(AbstractUser):
 
     role=models.CharField(max_length=200,choices=ROLE_CHOICES)
 
-class Studenet(models.Model):
+class Student(models.Model):
 
-    age=models.CharField(max_length=2)
+    age=models.CharField(max_length=2,blank=True)
 
     GENDER_CHOICES=(
         ("male","male"),
         ("female","female")
     )
 
-    gender=models.CharField(max_length=20,choices=GENDER_CHOICES)
+    gender=models.CharField(max_length=20,choices=GENDER_CHOICES,blank=True)
 
-    dob=models.DateField(null=True)
+    dob=models.DateField(null=True,blank=True)
 
-    department=models.CharField(max_length=50,null=True)
+    department=models.CharField(max_length=50,null=True,blank=True)
 
-    college=models.CharField(max_length=100,null=True)
-
-    profile_picture=models.ImageField(null=True,blank=True)
+    college=models.CharField(max_length=100,null=True,blank=True)
 
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name="Students")
 
 class Faculty(models.Model):
 
-    qualification=models.CharField(max_length=100)
+    qualification=models.CharField(max_length=100,blank=True)
 
-    experience=models.CharField(max_length=50)
+    experience=models.CharField(max_length=50,blank=True)
 
     GENDER_CHOICES=(
             ("male","male"),
             ("female","female")
         )
 
-    gender=models.CharField(max_length=20,choices=GENDER_CHOICES)
-
-    profile_picture=models.ImageField(null=True,blank=True)
-
+    gender=models.CharField(max_length=20,choices=GENDER_CHOICES,blank=True)
 
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name="faculty_member")
 
+def create_profile(sender,instance,created,**kwargs):
+
+    if created:
+
+        if instance.role=="Faculty":
+
+            Faculty.objects.create(user=instance)
+
+        elif instance.role=="Student":
+
+            Student.objects.create(user=instance)
+
+post_save.connect(create_profile,sender=User)
