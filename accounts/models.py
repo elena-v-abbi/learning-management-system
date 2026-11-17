@@ -48,5 +48,8 @@ class Faculty(models.Model):
 
     gender=models.CharField(max_length=20,choices=GENDER_CHOICES)
 
+    profile_picture=models.ImageField(null=True,blank=True)
+
+
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name="faculty_member")
 
