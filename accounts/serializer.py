@@ -26,3 +26,5 @@ class FacultySerializer(serializers.ModelSerializer):
         model=Faculty
 
         fields="__all__"
+
+        read_only_fields = ["user"]

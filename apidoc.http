@@ -3,9 +3,28 @@ POST  http://127.0.0.1:8000/register/
 Content-Type: application/json
 
 {
-    "username":"Elena",
+    "username":"Ria",
     "password":"password@123",
-    "email":"elena@gmail.com",
-    "phone":"1234567890",
-    "role":"Student"
+    "email":"ria@gmail.com",
+    "phone":"1234567899",
+    "role":"Faculty"
+}
+
+#retrive a faculty
+###
+GET http://127.0.0.1:8000/faculty/profile/
+Accept: application/json
+Authorization: Basic Ria:password@123
+
+#edit a  faculty profile
+###
+PUT http://127.0.0.1:8000/faculty/profile/
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic Ria:password@123
+
+{
+    "qualification": "M.Tech",
+    "experience": "2 years",
+    "gender": "female"
 }

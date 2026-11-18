@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from accounts.views import UserCreateView
+from accounts.views import UserCreateView,FacultyProfileView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/',UserCreateView.as_view()),
+    path('faculty/profile/',FacultyProfileView.as_view()),
 ]
