@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import User
-from rest_framework import authentication,permissions
+from rest_framework import authentication
 from .serializer import UserSerializer,FacultySerializer
 from .permissions import IsFaculty
 
@@ -13,7 +13,7 @@ class UserCreateView(CreateAPIView):
 
 class FacultyProfileView(RetrieveUpdateAPIView):
 
-    authentication_classes=[authentication.BasicAuthentication]
+    authentication_classes=[authentication.TokenAuthentication]
 
     permission_classes=[IsFaculty]
 

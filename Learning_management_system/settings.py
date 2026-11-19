@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -138,4 +139,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'your email'
-EMAIL_HOST_PASSWORD = 'your host password'
+EMAIL_HOST_PASSWORD = 'zkud gvpk omca mhml'

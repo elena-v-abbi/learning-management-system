@@ -21,10 +21,20 @@ Authorization: Basic Ria:password@123
 PUT http://127.0.0.1:8000/faculty/profile/
 Accept: application/json
 Content-Type: application/json
-Authorization: Basic Ria:password@123
+Authorization: Token 636243c42dfed32085ae7e71d29d1d012973e67e
 
 {
     "qualification": "M.Tech",
     "experience": "2 years",
     "gender": "female"
+}
+
+
+###
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+
+{
+    "username": "Ria",
+    "password": "password@123"
 }
