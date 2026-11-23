@@ -20,15 +20,15 @@ class CourseListCreateView(ListCreateAPIView):
     def perform_create(self, serializer):
 
         serializer.save(faculty=self.request.user.faculty_member)
-
+# 
 
 class CourseDetailView(RetrieveUpdateDestroyAPIView):
 
-    authentication_classes = [authentication.TokenAuthentication]
+    authentication_classes=[authentication.TokenAuthentication]
 
-    permission_classes = [IsAuthenticated]
+    permission_classes=[IsAuthenticated]
 
-    serializer_class = CourseSerializer
+    serializer_class=CourseSerializer
 
     def get_queryset(self):
 

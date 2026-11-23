@@ -12,5 +12,5 @@ class Course(models.Model):
     faculty = models.ForeignKey(Faculty,on_delete=models.CASCADE,related_name="courses")
 
     def __str__(self):
-
+        
         return self.course_name
