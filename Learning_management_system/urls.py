@@ -18,9 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from accounts.views import UserCreateView,FacultyProfileView
 from rest_framework.authtoken.views import obtain_auth_token
+from courses.views import CourseListCreateView, CourseDetailView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/',UserCreateView.as_view()),
     path('login/', obtain_auth_token),
     path('faculty/profile/',FacultyProfileView.as_view()),
+
+    path('courses/', CourseListCreateView.as_view()),
+    path('courses/<int:pk>/', CourseDetailView.as_view()),
 ]

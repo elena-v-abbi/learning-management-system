@@ -38,3 +38,46 @@ Content-Type: application/json
     "username": "Ria",
     "password": "password@123"
 }
+
+#add a course
+###
+POST http://127.0.0.1:8000/courses/
+Content-Type: application/json
+Authorization: Token 636243c42dfed32085ae7e71d29d1d012973e67e
+
+{
+    "course_name": "Python Django",
+    "description": "Backend web development using Django",
+    "duration": "3 months"
+}
+
+
+###
+PUT http://127.0.0.1:8000/courses/1/
+Content-Type: application/json
+Authorization: Token 636243c42dfed32085ae7e71d29d1d012973e67e
+
+{
+    "course_name": "Advanced Python Django",
+    "description": "Backend development using Django REST Framework",
+    "duration": "4 months"
+}
+
+#to delete a course
+
+###
+DELETE http://127.0.0.1:8000/courses/1/
+Authorization: Token 636243c42dfed32085ae7e71d29d1d012973e67e
+
+
+#to get all courses
+###
+GET http://127.0.0.1:8000/courses/
+Accept: application/json
+Authorization: Token 636243c42dfed32085ae7e71d29d1d012973e67e
+
+#get a single course
+###
+GET http://127.0.0.1:8000/courses/2/
+Accept: application/json
+Authorization: Token 636243c42dfed32085ae7e71d29d1d012973e67e
