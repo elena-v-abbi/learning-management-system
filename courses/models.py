@@ -11,6 +11,11 @@ class Course(models.Model):
 
     faculty = models.ForeignKey(Faculty,on_delete=models.CASCADE,related_name="courses")
 
-    def __str__(self):
-        
-        return self.course_name
+class Module(models.Model):
+
+    title = models.CharField(max_length = 100)
+
+    description = models.TextField(null = True)
+
+    course = models.ForeignKey(Course,on_delete = models.CASCADE,related_name = "modules")
+    

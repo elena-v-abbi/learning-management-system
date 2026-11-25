@@ -81,3 +81,14 @@ Authorization: Token 636243c42dfed32085ae7e71d29d1d012973e67e
 GET http://127.0.0.1:8000/courses/2/
 Accept: application/json
 Authorization: Token 636243c42dfed32085ae7e71d29d1d012973e67e
+
+
+###
+POST http://127.0.0.1:8000/courses/2/modules/
+Content-Type: application/json
+Authorization: Token 636243c42dfed32085ae7e71d29d1d012973e67e
+
+{
+    "title": "Introduction to Python",
+    "description": "Learn Python basics"
+}
